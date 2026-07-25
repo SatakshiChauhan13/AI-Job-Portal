@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AI Job Portal</h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/post_job">Post Job</a>
+
+        {% if session.get('user_id') %}
+            <span style="color:white;font-weight:bold;margin-left:20px;">
+                👋 {{ session['user_name'] }}
+            </span>
+
+            <a href="/my_applications">My Applications</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+
+    </div>
+</nav>
+<div class="dashboard">
+
+<h1>Welcome, {{ name }} 👋</h1>
+
+<p>Your career journey starts here.</p>
+
+<div class="cards">
+
+<div class="card">
+<h2>💼</h2>
+<h3>Browse Jobs</h3>
+<p>Explore available job opportunities.</p>
+
+<a href="/jobs">
+<button>View Jobs</button>
+</a>
+
+</div>
+
+<div class="card">
+<h2>➕</h2>
+<h3>Post Job</h3>
+<p>Create a new job listing.</p>
+
+<a href="/post_job">
+<button>Post Job</button>
+</a>
+
+</div>
+
+<div class="card">
+<h2>📄</h2>
+<h3>Applications</h3>
+<p>Track all your job applications.</p>
+
+<a href="/my_applications">
+<button>My Applications</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

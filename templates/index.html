@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AI Job Portal</h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/post_job">Post Job</a>
+
+        {% if session.get('user_id') %}
+            <span style="color:white;font-weight:bold;margin-left:20px;">
+                👋 {{ session['user_name'] }}
+            </span>
+
+            <a href="/my_applications">My Applications</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+
+    </div>
+</nav>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<section class="hero">
+
+    <h1>Find Your Dream Job</h1>
+
+    <p>Build your career with top companies across India.</p>
+
+    <div class="buttons">
+        <a href="/jobs"><button>Search Jobs</button></a>
+        <a href="/post_job"><button>Post Job</button></a>
+    </div>
+
+</section>
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>500+</h2>
+        <p>Job Seekers</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>150+</h2>
+        <p>Jobs Posted</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>80+</h2>
+        <p>Companies</p>
+    </div>
+
+</section>
+<section class="latest-jobs">
+
+    <h2>🔥 Latest Jobs</h2>
+
+    {% if jobs %}
+
+        {% for job in jobs %}
+
+        <div class="job-card">
+
+            <h3>{{ job.job_title }}</h3>
+
+            <p><strong>🏢 Company:</strong> {{ job.company_name }}</p>
+
+            <p>📍 {{ job.location }}</p>
+
+            <p>💰 {{ job.salary }}</p>
+
+            <p>{{ job.description[:120] }}...</p>
+
+            <a href="/apply/{{ job.id }}">
+                <button>Apply Now</button>
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p style="text-align:center;font-size:20px;">
+            No jobs available yet.
+        </p>
+
+    {% endif %}
+
+</section>
+<section class="features">
+
+<h2>Why Choose AI Job Portal?</h2>
+
+<div class="feature-container">
+
+<div class="feature">
+<h3>🔍 Easy Search</h3>
+<p>Find jobs quickly using simple filters.</p>
+</div>
+
+<div class="feature">
+<h3>🏢 Trusted Companies</h3>
+<p>Apply to verified recruiters.</p>
+</div>
+
+<div class="feature">
+<h3>⚡ Quick Apply</h3>
+<p>Apply to jobs in one click.</p>
+</div>
+
+</div>
+
+</section>
+<footer>
+
+<h3>AI Job Portal</h3>
+
+<p>Helping job seekers connect with top employers.</p>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>

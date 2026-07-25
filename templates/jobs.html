@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Jobs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AI Job Portal</h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/post_job">Post Job</a>
+
+        {% if session.get('user_id') %}
+            <span style="color:white;font-weight:bold;margin-left:20px;">
+                👋 {{ session['user_name'] }}
+            </span>
+
+            <a href="/my_applications">My Applications</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+
+    </div>
+</nav>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="search-box">
+    <form action="/jobs" method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search by job title, company or location"
+            value="{{ search }}">
+
+        <button type="submit">Search</button>
+
+    </form>
+</div>
+
+<div class="latest-jobs">
+
+    <h2>Available Jobs</h2>
+
+    {% if jobs %}
+
+        {% for job in jobs %}
+
+        <div class="job-card">
+
+            <h3>{{ job.job_title }}</h3>
+
+            <p><strong>🏢 Company:</strong> {{ job.company_name }}</p>
+
+            <p><strong>📍 Location:</strong> {{ job.location }}</p>
+
+            <p><strong>💰 Salary:</strong> {{ job.salary }}</p>
+
+            <p>{{ job.description }}</p>
+
+            <a href="/apply/{{ job.id }}">
+                <button>Apply Now</button>
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h3 style="text-align:center;">No jobs found.</h3>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
