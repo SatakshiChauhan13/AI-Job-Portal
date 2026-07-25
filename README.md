@@ -82,6 +82,10 @@ While building this project, I learned how to:
 - Email notifications
 - Job categories and filters
 
+## Acknowledgement
+
+This project was developed during my internship at **Codec Technologies** as part of my learning and practical training.
+
 ## About Me
 
 I'm **Satakshi Chauhan**, a BCA student passionate about Python, web development, and building practical projects that solve real problems.
