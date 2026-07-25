@@ -1,140 +1,89 @@
 # AI Job Portal
 
-A web-based Job Portal developed using **Python Flask** and **MySQL** that allows users to register, log in, browse jobs, post jobs, search for jobs, and apply for them.
+A full-stack job portal built with Flask and MySQL where users can create an account, explore available jobs, post new opportunities, and apply for jobs through a simple and responsive interface.
 
----
+This project was developed to strengthen my understanding of Flask, database integration, authentication, and CRUD operations while building a real-world web application.
 
 ## Features
 
-- User Registration
-- Secure Login & Logout
-- Password Hashing
-- Dashboard
-- Post New Jobs
-- View Available Jobs
-- Search Jobs
-- Apply for Jobs
-- View My Applications
-- Flash Messages
-- MySQL Database Integration
-- Responsive User Interface
+- User registration and login with password hashing
+- Session-based authentication
+- Post new job openings
+- Browse all available jobs
+- Search jobs by title, company, or location
+- Apply for jobs
+- Prevent duplicate job applications
+- View previously applied jobs
+- Responsive interface built using HTML and CSS
 
----
-
-## Technologies Used
+## Tech Stack
 
 - Python
 - Flask
 - MySQL
-- HTML5
-- CSS3
+- HTML
+- CSS
 - Jinja2
 - Werkzeug Security
 
----
+## Project Preview
 
-## Project Structure
+### Home Page
+![Home](screenshots/home.png.png)
 
-```
-AI-Job-Portal/
-│
-├── app.py
-├── config.py
-├── database.py
-├── requirements.txt
-├── README.md
-│
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   └── images/
-│
-└── templates/
-    ├── index.html
-    ├── login.html
-    ├── register.html
-    ├── dashboard.html
-    ├── jobs.html
-    ├── post_job.html
-    └── my_applications.html
-```
+### Login
+![Login](screenshots/login.png.png)
 
----
+### Register
+![Register](screenshots/register.png.png)
 
-## Database Tables
+### Available Jobs
+![Jobs](screenshots/jobs.png.png)
 
-- users
-- jobs
-- applications
+### My Applications
+![My Applications](screenshots/my application.png.png)
 
----
+## Getting Started
 
-## Installation
-
-1. Clone the repository
+Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/AI-Job-Portal.git
+git clone https://github.com/SatakshiChauhan13/AI-Job-Portal.git
 ```
 
-2. Navigate to the project
-
-```bash
-cd AI-Job-Portal
-```
-
-3. Install dependencies
+Install the required packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Create a MySQL database
-
-```sql
-CREATE DATABASE job_portal;
-```
-
-5. Update your database credentials in `config.py`.
-
-6. Run the application
+Create a MySQL database named `job_portal`, update the database configuration in `config.py`, and run:
 
 ```bash
 python app.py
 ```
 
----
+## What I Learned
 
-## Screenshots
+While building this project, I learned how to:
 
-Add screenshots of:
-
-- Home Page
-- Login Page
-- Register Page
-- Dashboard
-- Available Jobs
-- Post Job
-- My Applications
-
----
+- Build a complete Flask application
+- Connect Flask with MySQL
+- Manage user authentication securely
+- Work with sessions and flash messages
+- Perform CRUD operations
+- Organize a full-stack web project
 
 ## Future Improvements
 
-- Resume Upload
-- Email Notifications
-- Admin Dashboard
-- Company Profiles
-- Job Categories
-- Pagination
-- User Profile Editing
+- Resume upload support
+- Company profiles
+- Admin dashboard
+- Email notifications
+- Job categories and filters
 
----
+## About Me
 
-## Author
+I'm **Satakshi Chauhan**, a BCA student passionate about Python, web development, and building practical projects that solve real problems.
 
-**Satakshi Chauhan**
-
-BCA Student | Python & Flask Developer
-
-GitHub: https://github.com/your-username
+GitHub: https://github.com/SatakshiChauhan13
